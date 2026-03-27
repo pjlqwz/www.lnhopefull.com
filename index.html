@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>千羽网络 - 辽宁专业的一人公司/一人部门解决方案提供商</title>
+    <title>千羽网络 -辽宁专业的一人公司/一人部门解决方案提供商</title>
     <meta name="description" content="千羽网络专注于为辽宁企业提供一人公司、一人部门解决方案，用AI Agent实现降本增效，让一个人也能拥有整个部门的能力。">
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
             <a href="/" class="navbar-brand">
                 <img src="/img/logo.png" alt="千羽网络">
@@ -25,242 +26,183 @@
                 <li><a href="/news/">新闻中心</a></li>
                 <li><a href="/about/">关于我们</a></li>
             </ul>
-            <a href="tel:18624274046" class="navbar-cta">立即咨询</a>
-            <button class="navbar-toggle" aria-label="菜单">
-                <i class="fas fa-bars"></i>
+            <a href="tel:18624274046" class="navbar-cta">
+                <i class="fas fa-phone"></i>
+                咨询热线
+            </a>
+            <button class="navbar-toggle" id="navbarToggle" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
     </nav>
 
     <!-- Hero区域 -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-rocket"></i>
-                AI 赋能企业数字化转型
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-eyebrow animate-fadeInUp">
+                    AI 赋能企业数字化转型
+                </div>
+                <h1 class="display-xl hero-title animate-fadeInUp animate-delay-1">
+                    <span class="line">让一个人</span>
+                    <span class="line">拥有整个部门的能力</span>
+                </h1>
+                <p class="hero-desc animate-fadeInUp animate-delay-2">
+                    千羽网络是辽宁专业的一人公司/一人部门解决方案提供商。我们相信，AI不应该只是大企业的专利——每一个创业者、每一个中小企业，都值得拥有。
+                </p>
+                <div class="hero-buttons animate-fadeInUp animate-delay-3">
+                    <a href="/opc/" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i>
+                        了解更多
+                    </a>
+                    <a href="tel:18624274046" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i>
+                        电话咨询
+                    </a>
+                </div>
             </div>
-            <h1 class="hero-title">
-                辽宁专业的一人公司/<br>
-                <span class="highlight">一人部门解决方案</span>提供商
-            </h1>
-            <p class="hero-desc">
-                用 AI Agent 实现降本增效，让一个人也能拥有整个部门的能力
-            </p>
-            <div class="hero-buttons">
-                <a href="/opc/" class="btn btn-primary">
-                    <i class="fas fa-rocket"></i>
-                    开始探索
-                </a>
-                <a href="tel:18624274046" class="btn btn-secondary">
-                    <i class="fas fa-phone"></i>
-                    电话咨询
-                </a>
+        </div>
+        
+        <!-- 装饰 -->
+        <div class="hero-decoration">
+            <svg viewBox="0 0 600 600" fill="none">
+                <circle cx="300" cy="300" r="250" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                <circle cx="300" cy="300" r="200" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                <circle cx="300" cy="300" r="150" stroke="currentColor" stroke-width="1" opacity="0.1"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 数据展示 -->
+    <section class="brand-section">
+        <div class="container">
+            <div class="brand-grid">
+                <div class="brand-item">
+                    <div class="brand-number">200<span>+</span></div>
+                    <div class="brand-label">服务客户</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-number">90<span>%</span></div>
+                    <div class="brand-label">成本降低</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-number">10<span>×</span></div>
+                    <div class="brand-label">效率提升</div>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-number">24<span>/7</span></div>
+                    <div class="brand-label">全天候服务</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解决方案 -->
+    <section class="section solutions">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-label">解决方案</span>
+                <h2 class="display-md section-title">针对不同规模，量身定制</h2>
+                <p class="section-desc">从创业新人到中小企业，找到最适合你的方案</p>
+            </div>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="solution-title">一人公司</h3>
+                    <p class="solution-desc">为创业者量身打造。一个人也能高效运营，AI帮你处理客服、内容、运营等琐事。</p>
+                    <div class="solution-price">999<span>元/月起</span></div>
+                    <a href="/opc/" class="solution-link">
+                        了解详情 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="solution-title">一人部门</h3>
+                    <p class="solution-desc">用AI替代多个岗位。一个人管理整个部门，成本降低60-75%，效率提升10倍。</p>
+                    <div class="solution-price">1999<span>元/月起</span></div>
+                    <a href="/opd/" class="solution-link">
+                        了解详情 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="solution-title">定制服务</h3>
+                    <p class="solution-desc">大型企业专属方案。派人驻场、定制Skill、定制系统，实现真正的人机协同。</p>
+                    <div class="solution-price">面议</div>
+                    <a href="/custom/" class="solution-link">
+                        了解详情 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 核心价值 -->
-    <section class="section values">
+    <section class="section features">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">为什么选择我们</h2>
-                <p class="section-subtitle">专业团队 + 成熟技术 + 落地服务，帮助企业真正实现数字化转型</p>
-            </div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="value-title">AI Agent 驱动</h3>
-                    <p class="value-desc">自研 Agent 系统，兼容 API 和 Web 双模式</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-coins"></i>
-                    </div>
-                    <h3 class="value-title">成本降低 90%</h3>
-                    <p class="value-desc">用 AI 替代重复劳动，大幅降低用工成本</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3 class="value-title">效率提升 10 倍</h3>
-                    <p class="value-desc">24 小时不间断工作，响应速度提升数倍</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="value-title">本地化服务</h3>
-                    <p class="value-desc">辽宁本土企业，面对面沟通，快速响应</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 三大产品 -->
-    <section class="section products">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">解决方案</h2>
-                <p class="section-subtitle">针对不同规模企业，提供最合适的解决方案</p>
-            </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3 class="product-title">一人公司</h3>
-                    <p class="product-desc">为创业者量身打造，一个人也能高效运营整个公司</p>
-                    <div class="product-price">999<span>元/月起</span></div>
-                    <ul class="product-features">
-                        <li>2 个 AI Agent</li>
-                        <li>智能客服 7×24 小时</li>
-                        <li>自动化内容发布</li>
-                        <li>基础数据分析</li>
+            <div class="features-grid">
+                <div class="features-content">
+                    <span class="section-label">为什么选择我们</span>
+                    <h2 class="display-md section-title">不是卖软件，是帮你解决问题</h2>
+                    <p class="section-desc" style="margin-bottom: 40px;">
+                        我们不只是提供工具，更是帮你找到最适合的解决方案。
+                    </p>
+                    
+                    <ul class="features-list">
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>AI Agent 驱动</h4>
+                                <p>自研Agent系统，同时支持API调用和Web界面操作</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>本地化服务</h4>
+                                <p>辽宁本土企业，面对面沟通，快速响应</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>持续优化</h4>
+                                <p>长期跟踪效果，不断优化，让AI真正为你创造价值</p>
+                            </div>
+                        </li>
                     </ul>
-                    <a href="/opc/" class="btn btn-secondary">了解更多</a>
                 </div>
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="product-title">一人部门</h3>
-                    <p class="product-desc">用 AI 替代多个岗位，一个人管理整个部门</p>
-                    <div class="product-price">1999<span>元/月起</span></div>
-                    <ul class="product-features">
-                        <li>4-6 个 AI Agent</li>
-                        <li>CRM/ERP 系统集成</li>
-                        <li>销售/客服/运营自动化</li>
-                        <li>数据驾驶舱</li>
-                    </ul>
-                    <a href="/opd/" class="btn btn-primary">立即咨询</a>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3 class="product-title">定制服务</h3>
-                    <p class="product-desc">大型企业专属方案，派人驻场，精准定制</p>
-                    <div class="product-price">面议</div>
-                    <ul class="product-features">
-                        <li>深度需求调研</li>
-                        <li>定制 Skill 开发</li>
-                        <li>私有化部署</li>
-                        <li>企微/钉钉对接</li>
-                    </ul>
-                    <a href="/custom/" class="btn btn-secondary">获取方案</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 数据统计 -->
-    <section class="section stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number"><span>200</span>+</div>
-                    <div class="stat-label">服务客户</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number"><span>500</span>+</div>
-                    <div class="stat-label">成功案例</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number"><span>90</span>%</div>
-                    <div class="stat-label">成本降低</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number"><span>10</span>×</div>
-                    <div class="stat-label">效率提升</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 客户案例 -->
-    <section class="section cases">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">成功案例</h2>
-                <p class="section-subtitle">来自不同行业的客户，见证我们的专业实力</p>
-            </div>
-            <div class="cases-grid">
-                <div class="case-card">
-                    <div class="case-image">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <div class="case-content">
-                        <span class="case-tag">制造业</span>
-                        <h4 class="case-title">某机械加工企业</h4>
-                        <p class="case-desc">使用一人部门方案，3个Agent替代8人销售团队，年节省人力成本40万+</p>
-                    </div>
-                </div>
-                <div class="case-card">
-                    <div class="case-image">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <div class="case-content">
-                        <span class="case-tag">商贸</span>
-                        <h4 class="case-title">某建材贸易公司</h4>
-                        <p class="case-desc">CRM + 客服Agent，客户跟进效率提升300%，订单转化率翻倍</p>
-                    </div>
-                </div>
-                <div class="case-card">
-                    <div class="case-image">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="case-content">
-                        <span class="case-tag">科技</span>
-                        <h4 class="case-title">某软件创业公司</h4>
-                        <p class="case-desc">一人公司方案，创始人+3个Agent完成10人团队工作，创业成本降低70%</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 新闻动态 -->
-    <section class="section news">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">最新动态</h2>
-                <p class="section-subtitle">行业资讯与公司新闻，保持与时俱进</p>
-            </div>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-date">2026-03-26</div>
-                    <h4 class="news-title">
-                        <a href="#">AI Agent 如何帮助中小企业降本增效</a>
-                    </h4>
-                    <p class="news-excerpt">随着 AI 技术的成熟，越来越多的中小企业开始探索 Agent 在企业中的应用...</p>
-                </div>
-                <div class="news-card">
-                    <div class="news-date">2026-03-24</div>
-                    <h4 class="news-title">
-                        <a href="#">一人公司崛起：2026创业新趋势</a>
-                    </h4>
-                    <p class="news-excerpt">在 AI 工具的加持下，一个人就能完成过去需要一个团队才能完成的工作...</p>
-                </div>
-                <div class="news-card">
-                    <div class="news-date">2026-03-20</div>
-                    <h4 class="news-title">
-                        <a href="#">千羽网络推出「一人部门」解决方案</a>
-                    </h4>
-                    <p class="news-excerpt">专为中小企业打造的智能部门解决方案，一个人管理整个部门不再是梦...</p>
+                
+                <div class="features-visual">
+                    <i class="fas fa-robot"></i>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="cta">
+    <section class="cta-section">
         <div class="container">
-            <h2 class="cta-title">准备好开始了吗？</h2>
+            <h2 class="display-md cta-title">准备好开始了吗？</h2>
             <p class="cta-desc">联系我们，获取专属解决方案</p>
-            <a href="tel:18624274046" class="btn">
+            <a href="tel:18624274046" class="btn btn-primary">
                 <i class="fas fa-phone"></i>
                 立即拨打 18624274046
             </a>
@@ -276,7 +218,9 @@
                         <img src="/img/logo.png" alt="千羽网络">
                         <span>千羽网络</span>
                     </div>
-                    <p class="footer-desc">辽宁专业的一人公司/一人部门解决方案提供商，用 AI Agent 实现降本增效。</p>
+                    <p class="footer-desc">
+                        辽宁专业的一人公司/一人部门解决方案提供商，用AI Agent实现降本增效。
+                    </p>
                 </div>
                 <div>
                     <h4 class="footer-title">产品服务</h4>
@@ -292,7 +236,6 @@
                     <ul class="footer-links">
                         <li><a href="/about/">关于我们</a></li>
                         <li><a href="/about/contact.html">联系方式</a></li>
-                        <li><a href="#">隐私政策</a></li>
                     </ul>
                 </div>
                 <div>
@@ -310,11 +253,23 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 千羽网络 版权所有 | <a href="https://beian.miit.gov.cn/" target="_blank">辽ICP备XXXXXXXX号</a></p>
+                <p>&copy; 2026 千羽网络 版权所有</p>
+                <p><a href="https://beian.miit.gov.cn/" target="_blank">辽ICP备XXXXXXXX号</a></p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
