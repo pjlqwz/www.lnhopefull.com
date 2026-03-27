@@ -3,236 +3,851 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>一人公司解决方案 - 千羽网络</title>
-    <meta name="description" content="为创业者量身打造的一人公司解决方案，一个人也能高效运营整个公司。AI Agent 帮你处理客服、内容、运营等工作。">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <title>一人公司 - 千羽网络</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- 自定义 CSS -->
+    <style>
+        /* 全局样式 */
+        :root {
+            --bg-color: #FFFFFF;
+            --bg-light: #F8F9FA;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B6B6B;
+            --accent-color: #0066CC;
+            --accent-light: #E8F4FD;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: #0055AA;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: #0055AA;
+            border-color: #0055AA;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            background-color: transparent;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background-color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow);
+            padding: 0.5rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            margin-right: 0.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            margin: 0 0.5rem;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 102, 204, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .phone-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .phone-btn i {
+            margin-right: 0.5rem;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background-color: var(--bg-light);
+            padding: 8rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 80%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-decoration {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40%;
+            height: 80%;
+            background-color: var(--accent-light);
+            border-radius: 50% 0 0 50%;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        /* 痛点区域 */
+        .pain-points {
+            background-color: white;
+            padding: 5rem 0;
+        }
+
+        .pain-point-card {
+            background-color: var(--bg-light);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .pain-point-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .pain-point-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .pain-point-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* 解决方案区域 */
+        .solution {
+            background-color: var(--bg-light);
+            padding: 5rem 0;
+        }
+
+        .solution-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .solution-header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .solution-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-features {
+            padding: 2rem;
+        }
+
+        .solution-features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .solution-features-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .solution-features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .solution-features-list i {
+            color: #28a745;
+            margin-right: 0.75rem;
+        }
+
+        /* AI Agent 能力区域 */
+        .agent-capabilities {
+            background-color: white;
+            padding: 5rem 0;
+        }
+
+        .capability-card {
+            background-color: var(--bg-light);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .capability-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .capability-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA 区域 */
+        .cta {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta .btn-white {
+            background-color: white;
+            color: var(--accent-color);
+            padding: 0.75rem 2rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .cta .btn-white:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-3px);
+        }
+
+        /* 页脚 */
+        .footer {
+            background-color: #1A1A1A;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer p, .footer a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact i {
+            margin-right: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* 面包屑导航 */
+        .breadcrumb {
+            background-color: var(--bg-light);
+            padding: 6rem 0 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb .container {
+            padding: 0 1rem;
+        }
+
+        .breadcrumb-item {
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb-item a {
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--accent-color);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                max-width: 100%;
+            }
+            
+            .hero-decoration {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                padding-top: 1rem;
+            }
+            
+            .nav-link {
+                margin: 0.5rem 0;
+            }
+            
+            .phone-btn {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 6rem 0 3rem;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-decoration {
+                display: none;
+            }
+            
+            .pain-point-card, .capability-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .solution-card {
+                margin-bottom: 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+            
+            .breadcrumb {
+                padding-top: 5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .solution-price {
+                font-size: 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a href="/" class="navbar-brand">
-                <img src="/img/logo.png" alt="千羽网络">
-                <span>千羽网络</span>
+            <a class="navbar-brand" href="../index.html">
+                <img src="../img/logo.png" alt="千羽网络" style="height: 32px;">
             </a>
-            <ul class="navbar-menu">
-                <li><a href="/opc/" class="active">一人公司</a></li>
-                <li><a href="/opd/">一人部门</a></li>
-                <li><a href="/custom/">定制服务</a></li>
-                <li><a href="/news/">新闻中心</a></li>
-                <li><a href="/about/">关于我们</a></li>
-            </ul>
-            <a href="tel:18624274046" class="navbar-cta">立即咨询</a>
-            <button class="navbar-toggle" aria-label="菜单">
-                <i class="fas fa-bars"></i>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">一人公司</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../opd/index.html">一人部门</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../custom/index.html">定制服务</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../news/index.html">新闻中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about/index.html">关于我们</a>
+                    </li>
+                </ul>
+                <a href="tel:18624274046" class="phone-btn">
+                    <i class="fas fa-phone-alt"></i> 18624274046
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- 面包屑导航 -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">一人公司</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero 区域 -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-user"></i>
-                创业者首选方案
-            </div>
-            <h1 class="hero-title">
-                一个人也能开公司<br>
-                <span class="highlight">AI 帮你打天下</span>
-            </h1>
-            <p class="hero-desc">
-                为创业者量身打造，用 AI Agent 处理客服、内容、运营等工作<br>
-                让你专注核心业务，把琐事交给 AI
-            </p>
-            <div class="hero-buttons">
-                <a href="/opc/pricing.html" class="btn btn-primary">
-                    <i class="fas fa-tag"></i>
-                    查看价格
-                </a>
-                <a href="/opc/cases.html" class="btn btn-secondary">
-                    <i class="fas fa-star"></i>
-                    成功案例
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 痛点 -->
-    <section class="section values">
+        <div class="hero-decoration"></div>
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">创业者的困境</h2>
-                <p class="section-subtitle">一个人要干所有事，忙到飞起，却没有时间做真正重要的事</p>
-            </div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
+            <div class="row">
+                <div class="col-lg-6 hero-content">
+                    <h1>一个人也能开公司，AI帮你打天下</h1>
+                    <p>专为创业者打造的AI解决方案，让您一个人就能完成客服、市场、运营等多项工作，大幅降低创业成本。</p>
+                    <div class="hero-buttons">
+                        <a href="pricing.html" class="btn-primary">查看定价</a>
+                        <a href="tel:18624274046" class="btn-outline">电话咨询</a>
                     </div>
-                    <h3 class="value-title">精力分散</h3>
-                    <p class="value-desc">推广、客服、运营、财务...样样都要做，样样都做不好</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-user-clock"></i>
-                    </div>
-                    <h3 class="value-title">时间不够</h3>
-                    <p class="value-desc">每天忙得脚不沾地，却没有时间开发客户、提升服务</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-user-plus"></i>
-                    </div>
-                    <h3 class="value-title">招人太贵</h3>
-                    <p class="value-desc">请一个助理/客服/运营，月薪至少几千，成本压力大</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="value-title">AI 太难</h3>
-                    <p class="value-desc">想用 AI 提效，但不知道怎么用、用了效果不好</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 解决方案 -->
-    <section class="section products">
+    <!-- 痛点区域 -->
+    <section class="pain-points">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">一人公司解决方案</h2>
-                <p class="section-subtitle">999元/月起，拥有专属 AI 团队</p>
-            </div>
-            <div class="products-grid" style="grid-template-columns: 1fr;">
-                <div class="product-card" style="text-align: center; max-width: 600px; margin: 0 auto;">
-                    <div class="product-icon" style="margin: 0 auto 24px;">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="product-title">基础版 · 999元/月</h3>
-                    <p class="product-desc">适合刚开始创业，需要快速建立线上存在感的小微创业者</p>
-                    <ul class="product-features" style="text-align: left; max-width: 400px; margin: 0 auto 24px;">
-                        <li>2 个 AI Agent（客服 + 市场）</li>
-                        <li>智能客服 7×24 小时响应</li>
-                        <li>自动化内容发布</li>
-                        <li>网站模板一套</li>
-                        <li>每月 600 次 AI 对话</li>
-                    </ul>
-                    <a href="/opc/pricing.html" class="btn btn-primary">选择方案</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 功能 -->
-    <section class="section stats">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">AI Agent 能做什么</h2>
-            </div>
-            <div class="stats-grid" style="grid-template-columns: repeat(2, 1fr);">
-                <div class="stat-item" style="text-align: left; padding: 24px;">
-                    <div style="display: flex; align-items: flex-start; gap: 20px;">
-                        <div class="value-icon" style="width: 56px; height: 56px; flex-shrink: 0;">
-                            <i class="fas fa-comments"></i>
+            <h2 class="section-title">创业者的痛点</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">
+                            <i class="fas fa-random"></i>
                         </div>
-                        <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 8px;">智能客服</h4>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">24小时自动回答客户咨询，解答常见问题，引导留电</p>
+                        <h3 class="pain-point-title">精力分散</h3>
+                        <p>推广、客服、运营...样样要做，精力被严重分散，无法专注核心业务。</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="pain-point-title">时间不够</h3>
+                        <p>每天忙得脚不沾地，却还有做不完的事，没时间思考重要决策。</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h3 class="pain-point-title">招人太贵</h3>
+                        <p>月薪几千，还要交社保，创业初期成本压力太大，难以承受。</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="pain-point-title">AI太难</h3>
+                        <p>想用AI提升效率，但不知道从何入手，操作复杂，学习成本高。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解决方案区域 -->
+    <section class="solution">
+        <div class="container">
+            <h2 class="section-title">我们的解决方案</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="solution-card">
+                        <div class="solution-header">
+                            <h3>一人公司基础版</h3>
+                            <div class="solution-price">999元/月</div>
+                            <p>为创业者提供全方位AI支持，让您一个人也能高效运营公司</p>
+                        </div>
+                        <div class="solution-features">
+                            <ul class="solution-features-list">
+                                <li><i class="fas fa-check"></i> 2个AI Agent（客服+市场）</li>
+                                <li><i class="fas fa-check"></i> 智能客服7×24小时在线</li>
+                                <li><i class="fas fa-check"></i> 自动化内容创作与发布</li>
+                                <li><i class="fas fa-check"></i> 模板网站快速搭建</li>
+                                <li><i class="fas fa-check"></i> 基础数据分析报表</li>
+                                <li><i class="fas fa-check"></i> 一对一技术支持</li>
+                                <li><i class="fas fa-check"></i> 7天免费试用</li>
+                            </ul>
+                            <div class="text-center mt-4">
+                                <a href="pricing.html" class="btn-primary">立即购买</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="stat-item" style="text-align: left; padding: 24px;">
-                    <div style="display: flex; align-items: flex-start; gap: 20px;">
-                        <div class="value-icon" style="width: 56px; height: 56px; flex-shrink: 0;">
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Agent 能力区域 -->
+    <section class="agent-capabilities">
+        <div class="container">
+            <h2 class="section-title">AI Agent 能做什么</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="capability-card">
+                        <div class="capability-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="capability-title">智能客服</h3>
+                        <p>7×24小时在线，回答客户问题，处理投诉建议，提升客户满意度，无需人工干预。</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="capability-card">
+                        <div class="capability-icon">
                             <i class="fas fa-pen-fancy"></i>
                         </div>
-                        <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 8px;">内容创作</h4>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">自动生成朋友圈文案、公众号文章、社交媒体内容</p>
-                        </div>
+                        <h3 class="capability-title">内容创作</h3>
+                        <p>自动生成产品描述、营销文案、社交媒体内容，保持品牌声音一致性。</p>
                     </div>
                 </div>
-                <div class="stat-item" style="text-align: left; padding: 24px;">
-                    <div style="display: flex; align-items: flex-start; gap: 20px;">
-                        <div class="value-icon" style="width: 56px; height: 56px; flex-shrink: 0;">
-                            <i class="fas fa-calendar-check"></i>
+                <div class="col-md-3">
+                    <div class="capability-card">
+                        <div class="capability-icon">
+                            <i class="fas fa-calendar-alt"></i>
                         </div>
-                        <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 8px;">日程管理</h4>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">智能安排日程、设置提醒、跟踪待办事项</p>
-                        </div>
+                        <h3 class="capability-title">日程管理</h3>
+                        <p>智能安排会议，发送提醒，管理待办事项，让您的工作更有条理。</p>
                     </div>
                 </div>
-                <div class="stat-item" style="text-align: left; padding: 24px;">
-                    <div style="display: flex; align-items: flex-start; gap: 20px;">
-                        <div class="value-icon" style="width: 56px; height: 56px; flex-shrink: 0;">
+                <div class="col-md-3">
+                    <div class="capability-card">
+                        <div class="capability-icon">
                             <i class="fas fa-chart-pie"></i>
                         </div>
-                        <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 8px;">数据分析</h4>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">自动整理客户数据、生成报表、分析经营状况</p>
-                        </div>
+                        <h3 class="capability-title">数据分析</h3>
+                        <p>收集整理业务数据，生成可视化报表，帮助您做出更明智的决策。</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA 区域 -->
     <section class="cta">
         <div class="container">
-            <h2 class="cta-title">一个人也能开公司</h2>
-            <p class="cta-desc">让 AI 帮你处理琐事，你专注做最重要的事</p>
-            <a href="tel:18624274046" class="btn">
-                <i class="fas fa-phone"></i>
-                立即拨打 18624274046
+            <h2>准备好开始您的创业之旅了吗？</h2>
+            <p>联系我们，了解如何通过AI解决方案让您的创业之路更轻松。</p>
+            <a href="tel:18624274046" class="btn-white">
+                <i class="fas fa-phone-alt"></i> 立即致电：18624274046
             </a>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand">
-                        <img src="/img/logo.png" alt="千羽网络">
-                        <span>千羽网络</span>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="../index.html" class="footer-logo">
+                        
+                        <img src="../img/logo.png" alt="千羽网络" style="height: 32px;">
+                    </a>
+                    <p>千羽网络是专业的一人公司/一人部门AI解决方案提供商，致力于帮助企业降低成本、提高效率，实现业务增长。</p>
+                </div>
+                <div class="col-md-3">
+                    <h4>产品服务</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">一人公司</a></li>
+                        <li><a href="../opd/index.html">一人部门</a></li>
+                        <li><a href="../custom/index.html">定制服务</a></li>
+                        <li><a href="cases.html">客户案例</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../news/index.html">新闻中心</a></li>
+                        <li><a href="../about/index.html">关于我们</a></li>
+                        <li><a href="../about/contact.html">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>联系我们</h4>
+                    <div class="footer-contact">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>18624274046</span>
                     </div>
-                    <p class="footer-desc">辽宁专业的一人公司/一人部门解决方案提供商。</p>
-                </div>
-                <div>
-                    <h4 class="footer-title">产品服务</h4>
-                    <ul class="footer-links">
-                        <li><a href="/opc/">一人公司</a></li>
-                        <li><a href="/opd/">一人部门</a></li>
-                        <li><a href="/custom/">定制服务</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">快速链接</h4>
-                    <ul class="footer-links">
-                        <li><a href="/about/">关于我们</a></li>
-                        <li><a href="/about/contact.html">联系方式</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">联系我们</h4>
-                    <ul class="footer-links footer-contact">
-                        <li><i class="fas fa-phone"></i> 18624274046</li>
-                    </ul>
+                    <div class="footer-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>辽宁省盘锦市兴隆台区大商城市广场E座25楼</span>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://www.lnhopefull.com" target="_blank">www.lnhopefull.com</a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 千羽网络 版权所有</p>
+                <p>&copy; 2025 千羽网络 版权所有 | 辽ICP备XXXXXXXX号</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义 JS -->
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

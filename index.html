@@ -3,273 +3,1051 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>千羽网络 -辽宁专业的一人公司/一人部门解决方案提供商</title>
-    <meta name="description" content="千羽网络专注于为辽宁企业提供一人公司、一人部门解决方案，用AI Agent实现降本增效，让一个人也能拥有整个部门的能力。">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css">
+    <title>千羽网络 - 一人公司/一人部门AI解决方案提供商</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- 自定义 CSS -->
+    <style>
+        /* 全局样式 */
+        :root {
+            --bg-color: #FFFFFF;
+            --bg-light: #F8F9FA;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B6B6B;
+            --accent-color: #0066CC;
+            --accent-light: #E8F4FD;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
 
-    <link rel="stylesheet" href="/css/style.css">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: #0055AA;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: #0055AA;
+            border-color: #0055AA;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            background-color: transparent;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background-color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow);
+            padding: 0.5rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            margin-right: 0.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            margin: 0 0.5rem;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 102, 204, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .phone-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .phone-btn i {
+            margin-right: 0.5rem;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background-color: var(--bg-light);
+            padding: 8rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 80%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-decoration {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40%;
+            height: 80%;
+            background-color: var(--accent-light);
+            border-radius: 50% 0 0 50%;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        /* 数据展示区 */
+        .stats {
+            background-color: white;
+            padding: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-text {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* 解决方案区域 */
+        .solutions {
+            background-color: var(--bg-light);
+        }
+
+        .solution-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            background-color: white;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .solution-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .solution-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .solution-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 1rem 0;
+        }
+
+        .solution-features {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+            flex-grow: 1;
+        }
+
+        .solution-features li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .solution-features li i {
+            color: #28a745;
+            margin-right: 0.5rem;
+        }
+
+        /* 核心价值区域 */
+        .features {
+            background-color: white;
+        }
+
+        .feature-card {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .feature-icon {
+            background-color: var(--accent-light);
+            color: var(--accent-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content {
+            flex-grow: 1;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 案例区域 */
+        .cases {
+            background-color: var(--bg-light);
+        }
+
+        .case-card {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .case-content {
+            padding: 1.5rem;
+        }
+
+        .case-tag {
+            display: inline-block;
+            background-color: var(--accent-light);
+            color: var(--accent-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .case-stat {
+            text-align: center;
+        }
+
+        .case-stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .case-stat-text {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* CTA 区域 */
+        .cta {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta .btn-white {
+            background-color: white;
+            color: var(--accent-color);
+            padding: 0.75rem 2rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .cta .btn-white:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-3px);
+        }
+
+        /* 页脚 */
+        .footer {
+            background-color: #1A1A1A;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer p, .footer a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact i {
+            margin-right: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                max-width: 100%;
+            }
+            
+            .hero-decoration {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                padding-top: 1rem;
+            }
+            
+            .nav-link {
+                margin: 0.5rem 0;
+            }
+            
+            .phone-btn {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 6rem 0 3rem;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-decoration {
+                display: none;
+            }
+            
+            .stat-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .feature-card {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+            
+            .feature-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .case-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .solution-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a href="/" class="navbar-brand">
-                <img src="/img/logo.png" alt="千羽网络">
-                <span>千羽网络</span>
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.png" alt="千羽网络" style="height: 36px;"></a>
             </a>
-            <ul class="navbar-menu">
-                <li><a href="/opc/">一人公司</a></li>
-                <li><a href="/opd/">一人部门</a></li>
-                <li><a href="/custom/">定制服务</a></li>
-                <li><a href="/news/">新闻中心</a></li>
-                <li><a href="/about/">关于我们</a></li>
-            </ul>
-            <a href="tel:18624274046" class="navbar-cta">
-                <i class="fas fa-phone"></i>
-                咨询热线
-            </a>
-            <button class="navbar-toggle" id="navbarToggle" aria-label="菜单">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="opc/index.html">一人公司</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="opd/index.html">一人部门</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="custom/index.html">定制服务</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news/index.html">新闻中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about/index.html">关于我们</a>
+                    </li>
+                </ul>
+                <a href="tel:18624274046" class="phone-btn">
+                    <i class="fas fa-phone-alt"></i> 18624274046
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero区域 -->
+    <!-- Hero 区域 -->
     <section class="hero">
+        <div class="hero-decoration"></div>
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-eyebrow animate-fadeInUp">
-                    AI 赋能企业数字化转型
-                </div>
-                <h1 class="display-xl hero-title animate-fadeInUp animate-delay-1">
-                    <span class="line">让一个人</span>
-                    <span class="line">拥有整个部门的能力</span>
-                </h1>
-                <p class="hero-desc animate-fadeInUp animate-delay-2">
-                    千羽网络是辽宁专业的一人公司/一人部门解决方案提供商。我们相信，AI不应该只是大企业的专利——每一个创业者、每一个中小企业，都值得拥有。
-                </p>
-                <div class="hero-buttons animate-fadeInUp animate-delay-3">
-                    <a href="/opc/" class="btn btn-primary">
-                        <i class="fas fa-arrow-right"></i>
-                        了解更多
-                    </a>
-                    <a href="tel:18624274046" class="btn btn-secondary">
-                        <i class="fas fa-phone"></i>
-                        电话咨询
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 装饰 -->
-        <div class="hero-decoration">
-            <svg viewBox="0 0 600 600" fill="none">
-                <circle cx="300" cy="300" r="250" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-                <circle cx="300" cy="300" r="200" stroke="currentColor" stroke-width="1" opacity="0.2"/>
-                <circle cx="300" cy="300" r="150" stroke="currentColor" stroke-width="1" opacity="0.1"/>
-            </svg>
-        </div>
-    </section>
-
-    <!-- 数据展示 -->
-    <section class="brand-section">
-        <div class="container">
-            <div class="brand-grid">
-                <div class="brand-item">
-                    <div class="brand-number">200<span>+</span></div>
-                    <div class="brand-label">服务客户</div>
-                </div>
-                <div class="brand-item">
-                    <div class="brand-number">90<span>%</span></div>
-                    <div class="brand-label">成本降低</div>
-                </div>
-                <div class="brand-item">
-                    <div class="brand-number">10<span>×</span></div>
-                    <div class="brand-label">效率提升</div>
-                </div>
-                <div class="brand-item">
-                    <div class="brand-number">24<span>/7</span></div>
-                    <div class="brand-label">全天候服务</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 解决方案 -->
-    <section class="section solutions">
-        <div class="container">
-            <div class="section-header centered">
-                <span class="section-label">解决方案</span>
-                <h2 class="display-md section-title">针对不同规模，量身定制</h2>
-                <p class="section-desc">从创业新人到中小企业，找到最适合你的方案</p>
-            </div>
-            
-            <div class="solutions-grid">
-                <div class="solution-card">
-                    <div class="solution-icon">
-                        <i class="fas fa-user"></i>
+            <div class="row">
+                <div class="col-lg-6 hero-content">
+                    <h1>让一个人拥有整个部门的能力</h1>
+                    <p>千羽网络专注于为一人公司和一人部门提供AI解决方案，帮助您降低成本、提高效率，实现业务增长。</p>
+                    <div class="hero-buttons">
+                        <a href="#solutions" class="btn-primary">了解更多</a>
+                        <a href="tel:18624274046" class="btn-outline">电话咨询</a>
                     </div>
-                    <h3 class="solution-title">一人公司</h3>
-                    <p class="solution-desc">为创业者量身打造。一个人也能高效运营，AI帮你处理客服、内容、运营等琐事。</p>
-                    <div class="solution-price">999<span>元/月起</span></div>
-                    <a href="/opc/" class="solution-link">
-                        了解详情 <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="solution-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="solution-title">一人部门</h3>
-                    <p class="solution-desc">用AI替代多个岗位。一个人管理整个部门，成本降低60-75%，效率提升10倍。</p>
-                    <div class="solution-price">1999<span>元/月起</span></div>
-                    <a href="/opd/" class="solution-link">
-                        了解详情 <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="solution-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3 class="solution-title">定制服务</h3>
-                    <p class="solution-desc">大型企业专属方案。派人驻场、定制Skill、定制系统，实现真正的人机协同。</p>
-                    <div class="solution-price">面议</div>
-                    <a href="/custom/" class="solution-link">
-                        了解详情 <i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 核心价值 -->
-    <section class="section features">
+    <!-- 数据展示区 -->
+    <section class="stats">
         <div class="container">
-            <div class="features-grid">
-                <div class="features-content">
-                    <span class="section-label">为什么选择我们</span>
-                    <h2 class="display-md section-title">不是卖软件，是帮你解决问题</h2>
-                    <p class="section-desc" style="margin-bottom: 40px;">
-                        我们不只是提供工具，更是帮你找到最适合的解决方案。
-                    </p>
-                    
-                    <ul class="features-list">
-                        <li class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h4>AI Agent 驱动</h4>
-                                <p>自研Agent系统，同时支持API调用和Web界面操作</p>
-                            </div>
-                        </li>
-                        <li class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h4>本地化服务</h4>
-                                <p>辽宁本土企业，面对面沟通，快速响应</p>
-                            </div>
-                        </li>
-                        <li class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h4>持续优化</h4>
-                                <p>长期跟踪效果，不断优化，让AI真正为你创造价值</p>
-                            </div>
-                        </li>
-                    </ul>
+            <div class="row">
+                <div class="col-md-3 stat-card">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-text">服务客户</div>
                 </div>
-                
-                <div class="features-visual">
-                    <i class="fas fa-robot"></i>
+                <div class="col-md-3 stat-card">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-text">成本降低</div>
+                </div>
+                <div class="col-md-3 stat-card">
+                    <div class="stat-number">10×</div>
+                    <div class="stat-text">效率提升</div>
+                </div>
+                <div class="col-md-3 stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-text">全天候服务</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section">
+    <!-- 解决方案区域 -->
+    <section id="solutions" class="solutions section">
         <div class="container">
-            <h2 class="display-md cta-title">准备好开始了吗？</h2>
-            <p class="cta-desc">联系我们，获取专属解决方案</p>
-            <a href="tel:18624274046" class="btn btn-primary">
-                <i class="fas fa-phone"></i>
-                立即拨打 18624274046
+            <h2 class="section-title">三大解决方案</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="solution-title">一人公司</h3>
+                        <p>为创业者提供全方位AI支持，让您一个人也能高效运营公司。</p>
+                        <div class="solution-price">999元/月起</div>
+                        <ul class="solution-features">
+                            <li><i class="fas fa-check"></i> 2个AI Agent</li>
+                            <li><i class="fas fa-check"></i> 智能客服7×24小时</li>
+                            <li><i class="fas fa-check"></i> 自动化内容发布</li>
+                            <li><i class="fas fa-check"></i> 模板网站</li>
+                        </ul>
+                        <a href="opc/index.html" class="btn-primary mt-auto">查看详情</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h3 class="solution-title">一人部门</h3>
+                        <p>为中小企业提供部门级AI解决方案，大幅降低人力成本。</p>
+                        <div class="solution-price">1999元/月起</div>
+                        <ul class="solution-features">
+                            <li><i class="fas fa-check"></i> 4-6个AI Agent</li>
+                            <li><i class="fas fa-check"></i> 全流程业务支持</li>
+                            <li><i class="fas fa-check"></i> 数据分析报表</li>
+                            <li><i class="fas fa-check"></i> 定制化培训</li>
+                        </ul>
+                        <a href="opd/index.html" class="btn-primary mt-auto">查看详情</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="solution-title">定制服务</h3>
+                        <p>为大型企业提供专属AI解决方案，满足复杂业务需求。</p>
+                        <div class="solution-price">面议</div>
+                        <ul class="solution-features">
+                            <li><i class="fas fa-check"></i> 派人驻场</li>
+                            <li><i class="fas fa-check"></i> 定制Skill开发</li>
+                            <li><i class="fas fa-check"></i> 企业系统对接</li>
+                            <li><i class="fas fa-check"></i> 专属技术支持</li>
+                        </ul>
+                        <a href="custom/index.html" class="btn-primary mt-auto">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心价值区域 -->
+    <section class="features section">
+        <div class="container">
+            <h2 class="section-title">核心价值</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">AI Agent驱动</h3>
+                            <p>我们的解决方案由先进的AI Agent驱动，能够自主完成各种任务，无需人工干预，大幅提高工作效率。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">本地化服务</h3>
+                            <p>我们提供本地化服务支持，深入了解您的业务需求，提供符合当地市场特点的解决方案。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">持续优化</h3>
+                            <p>我们不断优化AI模型和算法，确保解决方案始终保持最佳性能，为您的业务提供持续增长动力。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">安全可靠</h3>
+                            <p>我们重视数据安全和隐私保护，采用先进的加密技术和安全措施，确保您的业务数据安全可靠。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户案例区域 -->
+    <section class="cases section">
+        <div class="container">
+            <h2 class="section-title">客户案例</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="case-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="科技创业公司案例" class="case-image">
+                        <div class="case-content">
+                            <span class="case-tag">科技创业</span>
+                            <h3 class="case-title">某科技创业公司</h3>
+                            <p>通过我们的一人公司解决方案，该公司创始人成功将客服和市场工作交给AI处理，专注于产品开发，业务增长300%。</p>
+                            <div class="case-stats">
+                                <div class="case-stat">
+                                    <div class="case-stat-number">300%</div>
+                                    <div class="case-stat-text">业务增长</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-number">85%</div>
+                                    <div class="case-stat-text">成本降低</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="case-card">
+                        <img src="https://images.unsplash.com/photo-1556741533-6e6a38387cdd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="中小企业案例" class="case-image">
+                        <div class="case-content">
+                            <span class="case-tag">中小企业</span>
+                            <h3 class="case-title">某制造企业</h3>
+                            <p>该企业采用一人部门解决方案，将销售和客服部门交由AI管理，节省了60%的人力成本，客户满意度提升40%。</p>
+                            <div class="case-stats">
+                                <div class="case-stat">
+                                    <div class="case-stat-number">60%</div>
+                                    <div class="case-stat-text">成本降低</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-number">40%</div>
+                                    <div class="case-stat-text">满意度提升</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="case-card">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="大型企业案例" class="case-image">
+                        <div class="case-content">
+                            <span class="case-tag">大型企业</span>
+                            <h3 class="case-title">某金融服务公司</h3>
+                            <p>我们为该公司提供定制化AI解决方案，实现了客户服务自动化，处理效率提升10倍，年节省成本超过500万元。</p>
+                            <div class="case-stats">
+                                <div class="case-stat">
+                                    <div class="case-stat-number">10×</div>
+                                    <div class="case-stat-text">效率提升</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-number">500万</div>
+                                    <div class="case-stat-text">年节省成本</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA 区域 -->
+    <section class="cta">
+        <div class="container">
+            <h2>准备好开始了吗？</h2>
+            <p>联系我们，了解如何通过AI解决方案提升您的业务效率，降低运营成本。</p>
+            <a href="tel:18624274046" class="btn-white">
+                <i class="fas fa-phone-alt"></i> 立即致电：18624274046
             </a>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand">
-                        <img src="/img/logo.png" alt="千羽网络">
-                        <span>千羽网络</span>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="index.html" class="footer-logo">
+                        
+                        <img src="img/logo.png" alt="千羽网络" style="height: 32px;">
+                    </a>
+                    <p>千羽网络是专业的一人公司/一人部门AI解决方案提供商，致力于帮助企业降低成本、提高效率，实现业务增长。</p>
+                </div>
+                <div class="col-md-3">
+                    <h4>产品服务</h4>
+                    <ul class="footer-links">
+                        <li><a href="opc/index.html">一人公司</a></li>
+                        <li><a href="opd/index.html">一人部门</a></li>
+                        <li><a href="custom/index.html">定制服务</a></li>
+                        <li><a href="opc/cases.html">客户案例</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="news/index.html">新闻中心</a></li>
+                        <li><a href="about/index.html">关于我们</a></li>
+                        <li><a href="about/contact.html">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>联系我们</h4>
+                    <div class="footer-contact">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>18624274046</span>
                     </div>
-                    <p class="footer-desc">
-                        辽宁专业的一人公司/一人部门解决方案提供商，用AI Agent实现降本增效。
-                    </p>
-                </div>
-                <div>
-                    <h4 class="footer-title">产品服务</h4>
-                    <ul class="footer-links">
-                        <li><a href="/opc/">一人公司</a></li>
-                        <li><a href="/opd/">一人部门</a></li>
-                        <li><a href="/custom/">定制服务</a></li>
-                        <li><a href="/news/">新闻中心</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">快速链接</h4>
-                    <ul class="footer-links">
-                        <li><a href="/about/">关于我们</a></li>
-                        <li><a href="/about/contact.html">联系方式</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">联系我们</h4>
-                    <ul class="footer-links footer-contact">
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            18624274046
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            辽宁省盘锦市兴隆台区<br>大商城市广场E座25楼
-                        </li>
-                    </ul>
+                    <div class="footer-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>辽宁省盘锦市兴隆台区大商城市广场E座25楼</span>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://www.lnhopefull.com" target="_blank">www.lnhopefull.com</a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 千羽网络 版权所有</p>
-                <p><a href="https://beian.miit.gov.cn/" target="_blank">辽ICP备XXXXXXXX号</a></p>
+                <p>&copy; 2025 千羽网络 版权所有 | 辽ICP备XXXXXXXX号</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义 JS -->
     <script>
         // 导航栏滚动效果
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
         });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 导航栏激活状态
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // 数字增长动画
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            if (!obj) return;
+            
+            const range = end - start;
+            const minTimer = 50;
+            let stepTime = Math.abs(Math.floor(duration / range));
+            
+            stepTime = Math.max(stepTime, minTimer);
+            
+            let startTime = new Date().getTime();
+            let endTime = startTime + duration;
+            let timer;
+            
+            function run() {
+                let now = new Date().getTime();
+                let remaining = Math.max((endTime - now) / duration, 0);
+                let value = Math.round(end - (remaining * range));
+                
+                if (id.includes('percentage')) {
+                    obj.textContent = value + '%';
+                } else if (id.includes('times')) {
+                    obj.textContent = value + '×';
+                } else if (id.includes('clients')) {
+                    obj.textContent = value + '+';
+                } else if (id.includes('hours')) {
+                    obj.textContent = '24/7';
+                }
+                
+                if (value === end) {
+                    clearInterval(timer);
+                }
+            }
+            
+            timer = setInterval(run, stepTime);
+            run();
+        }
+
+        // 监听元素进入视口
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // 启动数字增长动画
+                    animateValue('stat-clients', 0, 200, 2000);
+                    animateValue('stat-percentage', 0, 90, 2000);
+                    animateValue('stat-times', 0, 10, 2000);
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // 观察统计区域
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
     </script>
 </body>
 </html>

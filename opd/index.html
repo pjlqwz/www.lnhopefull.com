@@ -3,221 +3,858 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>一人部门解决方案 - 千羽网络</title>
-    <meta name="description" content="用 AI 替代多个岗位，一个人管理整个部门。中小企业降本增效首选方案，1999元/月起。">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <title>一人部门 - 千羽网络</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- 自定义 CSS -->
+    <style>
+        /* 全局样式 */
+        :root {
+            --bg-color: #FFFFFF;
+            --bg-light: #F8F9FA;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B6B6B;
+            --accent-color: #0066CC;
+            --accent-light: #E8F4FD;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: #0055AA;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: #0055AA;
+            border-color: #0055AA;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            background-color: transparent;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background-color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow);
+            padding: 0.5rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            margin-right: 0.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            margin: 0 0.5rem;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 102, 204, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .phone-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .phone-btn i {
+            margin-right: 0.5rem;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background-color: var(--bg-light);
+            padding: 8rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 80%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-decoration {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40%;
+            height: 80%;
+            background-color: var(--accent-light);
+            border-radius: 50% 0 0 50%;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        /* 痛点区域 */
+        .pain-points {
+            background-color: white;
+            padding: 5rem 0;
+        }
+
+        .pain-point-card {
+            background-color: var(--bg-light);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .pain-point-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .pain-point-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .pain-point-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* 解决方案区域 */
+        .solutions {
+            background-color: var(--bg-light);
+            padding: 5rem 0;
+        }
+
+        .solution-cards {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .solution-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .solution-header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .solution-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-features {
+            padding: 2rem;
+        }
+
+        .solution-features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .solution-features-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .solution-features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .solution-features-list i {
+            color: #28a745;
+            margin-right: 0.75rem;
+        }
+
+        /* 效果数据区域 */
+        .results {
+            background-color: white;
+            padding: 5rem 0;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .result-text {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        /* CTA 区域 */
+        .cta {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta .btn-white {
+            background-color: white;
+            color: var(--accent-color);
+            padding: 0.75rem 2rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .cta .btn-white:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-3px);
+        }
+
+        /* 页脚 */
+        .footer {
+            background-color: #1A1A1A;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer p, .footer a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact i {
+            margin-right: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* 面包屑导航 */
+        .breadcrumb {
+            background-color: var(--bg-light);
+            padding: 6rem 0 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb .container {
+            padding: 0 1rem;
+        }
+
+        .breadcrumb-item {
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb-item a {
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--accent-color);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                max-width: 100%;
+            }
+            
+            .hero-decoration {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                padding-top: 1rem;
+            }
+            
+            .nav-link {
+                margin: 0.5rem 0;
+            }
+            
+            .phone-btn {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 6rem 0 3rem;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-decoration {
+                display: none;
+            }
+            
+            .pain-point-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .solution-card {
+                margin-bottom: 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+            
+            .breadcrumb {
+                padding-top: 5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .solution-price {
+                font-size: 2rem;
+            }
+            
+            .result-number {
+                font-size: 2.5rem;
+            }
+            
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a href="/" class="navbar-brand">
-                <img src="/img/logo.png" alt="千羽网络">
-                <span>千羽网络</span>
+            <a class="navbar-brand" href="../index.html">
+                <img src="../img/logo.png" alt="千羽网络" style="height: 32px;">
             </a>
-            <ul class="navbar-menu">
-                <li><a href="/opc/">一人公司</a></li>
-                <li><a href="/opd/" class="active">一人部门</a></li>
-                <li><a href="/custom/">定制服务</a></li>
-                <li><a href="/news/">新闻中心</a></li>
-                <li><a href="/about/">关于我们</a></li>
-            </ul>
-            <a href="tel:18624274046" class="navbar-cta">立即咨询</a>
-            <button class="navbar-toggle" aria-label="菜单">
-                <i class="fas fa-bars"></i>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../opc/index.html">一人公司</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">一人部门</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../custom/index.html">定制服务</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../news/index.html">新闻中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about/index.html">关于我们</a>
+                    </li>
+                </ul>
+                <a href="tel:18624274046" class="phone-btn">
+                    <i class="fas fa-phone-alt"></i> 18624274046
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- 面包屑导航 -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">一人部门</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero 区域 -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-users"></i>
-                中小企业首选
-            </div>
-            <h1 class="hero-title">
-                一个人管理整个部门<br>
-                <span class="highlight">AI 替你打工</span>
-            </h1>
-            <p class="hero-desc">
-                用 AI Agent 替代多个岗位，一个人管理整个部门<br>
-                成本降低 60-75%，效率提升 10 倍
-            </p>
-            <div class="hero-buttons">
-                <a href="/opd/pricing.html" class="btn btn-primary">
-                    <i class="fas fa-tag"></i>
-                    查看价格
-                </a>
-                <a href="/opd/cases.html" class="btn btn-secondary">
-                    <i class="fas fa-star"></i>
-                    成功案例
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 痛点 -->
-    <section class="section values">
+        <div class="hero-decoration"></div>
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">中小企业面临的挑战</h2>
-                <p class="section-subtitle">招人难、留人难、用工贵，部门多、人员多、管理成本高</p>
-            </div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-user-minus"></i>
+            <div class="row">
+                <div class="col-lg-6 hero-content">
+                    <h1>一个人管理整个部门，AI替你打工</h1>
+                    <p>专为中小企业打造的部门级AI解决方案，让您以一人之力管理整个部门，大幅降低人力成本，提高工作效率。</p>
+                    <div class="hero-buttons">
+                        <a href="pricing.html" class="btn-primary">查看定价</a>
+                        <a href="tel:18624274046" class="btn-outline">电话咨询</a>
                     </div>
-                    <h3 class="value-title">招人难</h3>
-                    <p class="value-desc">合适的销售、客服、运营人员太难招，培训周期长</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-user-slash"></i>
-                    </div>
-                    <h3 class="value-title">留人难</h3>
-                    <p class="value-desc">培养好的人容易跳槽，经验难以积累</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <h3 class="value-title">用工贵</h3>
-                    <p class="value-desc">工资、社保、福利、管理，一个人的实际成本是工资的1.5-2倍</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users-cog"></i>
-                    </div>
-                    <h3 class="value-title">管理难</h3>
-                    <p class="value-desc">部门墙严重，沟通成本高，效率低下</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 解决方案 -->
-    <section class="section products">
+    <!-- 痛点区域 -->
+    <section class="pain-points">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">一人部门解决方案</h2>
-                <p class="section-subtitle">标准版 1999元/月，专业版 2999元/月</p>
-            </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-star"></i>
+            <h2 class="section-title">中小企业的痛点</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3 class="pain-point-title">招人难</h3>
+                        <p>优秀人才难招聘，简历筛选耗时耗力，面试成本高，合适的人选难找。</p>
                     </div>
-                    <h3 class="product-title">标准版</h3>
-                    <p class="product-desc">适合 10-30 人小微企业，4 个 Agent 覆盖核心岗位</p>
-                    <div class="product-price">1999<span>元/月</span></div>
-                    <ul class="product-features">
-                        <li>4 个 AI Agent</li>
-                        <li>销售 + 客服 + 市场 + 人力</li>
-                        <li>CRM 系统</li>
-                        <li>每月 1500 次 AI 对话</li>
-                        <li>云服务+SaaS办公系统</li>
-                    </ul>
-                    <a href="/opd/pricing.html" class="btn btn-secondary">选择方案</a>
                 </div>
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-crown"></i>
+                <div class="col-md-3">
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">
+                            <i class="fas fa-user-minus"></i>
+                        </div>
+                        <h3 class="pain-point-title">留人难</h3>
+                        <p>员工流失率高，培训成本付诸东流，团队不稳定影响业务发展。</p>
                     </div>
-                    <h3 class="product-title">专业版</h3>
-                    <p class="product-desc">适合 30-50 人企业，6 个 Agent 全面覆盖</p>
-                    <div class="product-price">2999<span>元/月</span></div>
-                    <ul class="product-features">
-                        <li>6 个 AI Agent</li>
-                        <li>+ 财务 + 运营 Agent</li>
-                        <li>CRM + ERP 系统</li>
-                        <li>每月 4500 次 AI 对话</li>
-                        <li>数据驾驶舱</li>
-                    </ul>
-                    <a href="/opd/pricing.html" class="btn btn-primary">选择方案</a>
+                </div>
+                <div class="col-md-3">
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h3 class="pain-point-title">用工贵</h3>
+                        <p>薪资、社保、福利成本高，中小企业压力大，难以负担多个专职岗位。</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="pain-point-card">
+                        <div class="pain-point-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3 class="pain-point-title">管理难</h3>
+                        <p>人员管理复杂，沟通成本高，工作效率低下，难以保证执行力。</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 数据对比 -->
-    <section class="section stats">
+    <!-- 解决方案区域 -->
+    <section class="solutions">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">效果对比</h2>
-            </div>
-            <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="stat-item">
-                    <div class="stat-number"><span>60</span>-75%</div>
-                    <div class="stat-label">人力成本降低</div>
+            <h2 class="section-title">我们的解决方案</h2>
+            <div class="solution-cards">
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <h3>一人部门标准版</h3>
+                        <div class="solution-price">1999元/月</div>
+                        <p>适合小型团队的部门级AI解决方案</p>
+                    </div>
+                    <div class="solution-features">
+                        <ul class="solution-features-list">
+                            <li><i class="fas fa-check"></i> 4个AI Agent</li>
+                            <li><i class="fas fa-check"></i> 智能客服7×24小时</li>
+                            <li><i class="fas fa-check"></i> 销售线索管理</li>
+                            <li><i class="fas fa-check"></i> 内容创作与发布</li>
+                            <li><i class="fas fa-check"></i> 数据分析报表</li>
+                            <li><i class="fas fa-check"></i> 基础培训支持</li>
+                            <li><i class="fas fa-check"></i> 7天免费试用</li>
+                        </ul>
+                        <div class="text-center mt-4">
+                            <a href="pricing.html" class="btn-primary">立即购买</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number"><span>10</span>×</div>
-                    <div class="stat-label">工作效率提升</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number"><span>7×24</span></div>
-                    <div class="stat-label">全天候工作</div>
+                <div class="solution-card">
+                    <div class="solution-header" style="background-color: #004C99;">
+                        <h3>一人部门专业版</h3>
+                        <div class="solution-price">2999元/月</div>
+                        <p>适合中型企业的高级AI解决方案</p>
+                    </div>
+                    <div class="solution-features">
+                        <ul class="solution-features-list">
+                            <li><i class="fas fa-check"></i> 6个AI Agent</li>
+                            <li><i class="fas fa-check"></i> 智能客服7×24小时</li>
+                            <li><i class="fas fa-check"></i> 销售线索管理</li>
+                            <li><i class="fas fa-check"></i> 内容创作与发布</li>
+                            <li><i class="fas fa-check"></i> 高级数据分析报表</li>
+                            <li><i class="fas fa-check"></i> 定制化培训</li>
+                            <li><i class="fas fa-check"></i> 专属技术支持</li>
+                            <li><i class="fas fa-check"></i> 7天免费试用</li>
+                        </ul>
+                        <div class="text-center mt-4">
+                            <a href="pricing.html" class="btn-primary" style="background-color: #004C99; border-color: #004C99;">立即购买</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- 效果数据区域 -->
+    <section class="results">
+        <div class="container">
+            <h2 class="section-title">使用效果</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="result-card">
+                        <div class="result-number">60-75%</div>
+                        <div class="result-text">成本降低</div>
+                        <p>相比传统招聘和人力管理，使用我们的AI解决方案可大幅降低人力成本。</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="result-card">
+                        <div class="result-number">10×</div>
+                        <div class="result-text">效率提升</div>
+                        <p>AI Agent 24小时不间断工作，处理效率是人工的数倍，大幅提升部门工作效率。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA 区域 -->
     <section class="cta">
         <div class="container">
-            <h2 class="cta-title">让 AI 替你打工</h2>
-            <p class="cta-desc">一个人管理整个部门不再是梦</p>
-            <a href="tel:18624274046" class="btn">
-                <i class="fas fa-phone"></i>
-                立即拨打 18624274046
+            <h2>准备好提升您的部门效率了吗？</h2>
+            <p>联系我们，了解如何通过AI解决方案让您的部门工作更高效、更省心。</p>
+            <a href="tel:18624274046" class="btn-white">
+                <i class="fas fa-phone-alt"></i> 立即致电：18624274046
             </a>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand">
-                        <img src="/img/logo.png" alt="千羽网络">
-                        <span>千羽网络</span>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="../index.html" class="footer-logo">
+                        
+                        <img src="../img/logo.png" alt="千羽网络" style="height: 32px;">
+                    </a>
+                    <p>千羽网络是专业的一人公司/一人部门AI解决方案提供商，致力于帮助企业降低成本、提高效率，实现业务增长。</p>
+                </div>
+                <div class="col-md-3">
+                    <h4>产品服务</h4>
+                    <ul class="footer-links">
+                        <li><a href="../opc/index.html">一人公司</a></li>
+                        <li><a href="index.html">一人部门</a></li>
+                        <li><a href="../custom/index.html">定制服务</a></li>
+                        <li><a href="cases.html">客户案例</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../news/index.html">新闻中心</a></li>
+                        <li><a href="../about/index.html">关于我们</a></li>
+                        <li><a href="../about/contact.html">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>联系我们</h4>
+                    <div class="footer-contact">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>18624274046</span>
                     </div>
-                    <p class="footer-desc">辽宁专业的一人公司/一人部门解决方案提供商。</p>
-                </div>
-                <div>
-                    <h4 class="footer-title">产品服务</h4>
-                    <ul class="footer-links">
-                        <li><a href="/opc/">一人公司</a></li>
-                        <li><a href="/opd/">一人部门</a></li>
-                        <li><a href="/custom/">定制服务</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">快速链接</h4>
-                    <ul class="footer-links">
-                        <li><a href="/about/">关于我们</a></li>
-                        <li><a href="/about/contact.html">联系方式</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">联系我们</h4>
-                    <ul class="footer-links footer-contact">
-                        <li><i class="fas fa-phone"></i> 18624274046</li>
-                    </ul>
+                    <div class="footer-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>辽宁省盘锦市兴隆台区大商城市广场E座25楼</span>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://www.lnhopefull.com" target="_blank">www.lnhopefull.com</a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 千羽网络 版权所有</p>
+                <p>&copy; 2025 千羽网络 版权所有 | 辽ICP备XXXXXXXX号</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义 JS -->
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -3,133 +3,727 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联系我们 - 千羽网络</title>
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <title>联系方式 - 千羽网络</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- 自定义 CSS -->
+    <style>
+        /* 全局样式 */
+        :root {
+            --bg-color: #FFFFFF;
+            --bg-light: #F8F9FA;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B6B6B;
+            --accent-color: #0066CC;
+            --accent-light: #E8F4FD;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: #0055AA;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: #0055AA;
+            border-color: #0055AA;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            background-color: transparent;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background-color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow);
+            padding: 0.5rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            margin-right: 0.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            margin: 0 0.5rem;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 102, 204, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .phone-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .phone-btn i {
+            margin-right: 0.5rem;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background-color: var(--bg-light);
+            padding: 8rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 80%;
+        }
+
+        .hero-decoration {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40%;
+            height: 80%;
+            background-color: var(--accent-light);
+            border-radius: 50% 0 0 50%;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        /* 联系信息区域 */
+        .contact {
+            background-color: white;
+            padding: 5rem 0;
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            background-color: var(--accent-light);
+            color: var(--accent-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            margin-bottom: 0;
+        }
+
+        .qrcode {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .qrcode img {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #eee;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .qrcode p {
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        /* 表单样式 */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.375rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* 页脚 */
+        .footer {
+            background-color: #1A1A1A;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer p, .footer a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact i {
+            margin-right: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* 面包屑导航 */
+        .breadcrumb {
+            background-color: var(--bg-light);
+            padding: 6rem 0 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb .container {
+            padding: 0 1rem;
+        }
+
+        .breadcrumb-item {
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb-item a {
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--accent-color);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                max-width: 100%;
+            }
+            
+            .hero-decoration {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                padding-top: 1rem;
+            }
+            
+            .nav-link {
+                margin: 0.5rem 0;
+            }
+            
+            .phone-btn {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 6rem 0 3rem;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-decoration {
+                display: none;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .contact-form {
+                margin-top: 2rem;
+            }
+            
+            .breadcrumb {
+                padding-top: 5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a href="/" class="navbar-brand">
-                <img src="/img/logo.png" alt="千羽网络">
-                <span>千羽网络</span>
+            <a class="navbar-brand" href="../index.html">
+                <img src="../img/logo.png" alt="千羽网络" style="height: 32px;">
             </a>
-            <ul class="navbar-menu">
-                <li><a href="/opc/">一人公司</a></li>
-                <li><a href="/opd/">一人部门</a></li>
-                <li><a href="/custom/">定制服务</a></li>
-                <li><a href="/news/">新闻中心</a></li>
-                <li><a href="/about/" class="active">关于我们</a></li>
-            </ul>
-            <a href="tel:18624274046" class="navbar-cta">立即咨询</a>
-            <button class="navbar-toggle" aria-label="菜单">
-                <i class="fas fa-bars"></i>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../opc/index.html">一人公司</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../opd/index.html">一人部门</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../custom/index.html">定制服务</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../news/index.html">新闻中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">关于我们</a>
+                    </li>
+                </ul>
+                <a href="tel:18624274046" class="phone-btn">
+                    <i class="fas fa-phone-alt"></i> 18624274046
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section style="padding: 140px 0 60px; background: var(--bg-secondary);">
+    <!-- 面包屑导航 -->
+    <div class="breadcrumb">
         <div class="container">
-            <h1 class="hero-title" style="font-size: 2.5rem; text-align: center;">联系我们</h1>
-            <p style="text-align: center; color: var(--text-muted); margin-top: 16px;">期待与您的合作</p>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">首页</a></li>
+                    <li class="breadcrumb-item"><a href="index.html">关于我们</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">联系方式</li>
+                </ol>
+            </nav>
         </div>
-    </section>
+    </div>
 
-    <!-- 联系方式 -->
-    <section class="section">
+    <!-- Hero 区域 -->
+    <section class="hero">
+        <div class="hero-decoration"></div>
         <div class="container">
-            <div style="max-width: 600px; margin: 0 auto;">
-                <div class="value-card" style="padding: 48px;">
-                    <div style="text-align: center; margin-bottom: 40px;">
-                        <img src="/img/wechat-qr.png" alt="微信二维码" style="width: 200px; border-radius: var(--radius-md);">
-                        <p style="margin-top: 16px; color: var(--text-muted);">扫码添加微信</p>
-                    </div>
-                    
-                    <div style="border-top: 1px solid var(--border-subtle); padding-top: 32px;">
-                        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
-                            <div class="value-icon" style="width: 48px; height: 48px; flex-shrink: 0;">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <div style="color: var(--text-muted); font-size: 0.875rem;">电话</div>
-                                <div style="color: var(--text-primary); font-size: 1.25rem; font-weight: 600;">
-                                    <a href="tel:18624274046" style="color: var(--text-primary);">18624274046</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px;">
-                            <div class="value-icon" style="width: 48px; height: 48px; flex-shrink: 0;">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <div style="color: var(--text-muted); font-size: 0.875rem;">地址</div>
-                                <div style="color: var(--text-primary); font-size: 1rem;">
-                                    辽宁省盘锦市兴隆台区<br>大商城市广场E座25楼
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: 16px;">
-                            <div class="value-icon" style="width: 48px; height: 48px; flex-shrink: 0;">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div>
-                                <div style="color: var(--text-muted); font-size: 0.875rem;">官网</div>
-                                <div style="color: var(--text-primary); font-size: 1rem;">
-                                    <a href="https://www.lnhopefull.com" target="_blank">www.lnhopefull.com</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-lg-6 hero-content">
+                    <h1>联系我们</h1>
+                    <p>如果您对我们的产品和服务有任何疑问，或者想了解更多信息，请随时联系我们。我们将竭诚为您服务。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- 联系信息区域 -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">联系方式</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>电话</h3>
+                            <p>18624274046</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>地址</h3>
+                            <p>辽宁省盘锦市兴隆台区大商城市广场E座25楼</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>官网</h3>
+                            <p><a href="https://www.lnhopefull.com" target="_blank">www.lnhopefull.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="qrcode">
+                        <img src="../img/wechat-qr.png" alt="千羽网络微信二维码">
+                        <p>扫码添加微信咨询</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">在线留言</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="form-label">姓名</label>
+                            <input type="text" class="form-control" id="name" placeholder="请输入您的姓名">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">电话</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="请输入您的电话">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">邮箱</label>
+                            <input type="email" class="form-control" id="email" placeholder="请输入您的邮箱">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">主题</label>
+                            <input type="text" class="form-control" id="subject" placeholder="请输入留言主题">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">留言内容</label>
+                            <textarea class="form-control" id="message" placeholder="请输入您的留言内容"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">提交留言</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand">
-                        <img src="/img/logo.png" alt="千羽网络">
-                        <span>千羽网络</span>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="../index.html" class="footer-logo">
+                        
+                        <img src="../img/logo.png" alt="千羽网络" style="height: 32px;">
+                    </a>
+                    <p>千羽网络是专业的一人公司/一人部门AI解决方案提供商，致力于帮助企业降低成本、提高效率，实现业务增长。</p>
+                </div>
+                <div class="col-md-3">
+                    <h4>产品服务</h4>
+                    <ul class="footer-links">
+                        <li><a href="../opc/index.html">一人公司</a></li>
+                        <li><a href="../opd/index.html">一人部门</a></li>
+                        <li><a href="../custom/index.html">定制服务</a></li>
+                        <li><a href="../opc/cases.html">客户案例</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../news/index.html">新闻中心</a></li>
+                        <li><a href="index.html">关于我们</a></li>
+                        <li><a href="contact.html">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>联系我们</h4>
+                    <div class="footer-contact">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>18624274046</span>
                     </div>
-                    <p class="footer-desc">辽宁专业的一人公司/一人部门解决方案提供商。</p>
-                </div>
-                <div>
-                    <h4 class="footer-title">产品服务</h4>
-                    <ul class="footer-links">
-                        <li><a href="/opc/">一人公司</a></li>
-                        <li><a href="/opd/">一人部门</a></li>
-                        <li><a href="/custom/">定制服务</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">快速链接</h4>
-                    <ul class="footer-links">
-                        <li><a href="/about/">关于我们</a></li>
-                        <li><a href="/about/contact.html">联系方式</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">联系我们</h4>
-                    <ul class="footer-links footer-contact">
-                        <li><i class="fas fa-phone"></i> 18624274046</li>
-                    </ul>
+                    <div class="footer-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>辽宁省盘锦市兴隆台区大商城市广场E座25楼</span>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://www.lnhopefull.com" target="_blank">www.lnhopefull.com</a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 千羽网络 版权所有</p>
+                <p>&copy; 2025 千羽网络 版权所有 | 辽ICP备XXXXXXXX号</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义 JS -->
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 表单提交
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 获取表单数据
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // 简单验证
+            if (!name || !phone || !email || !subject || !message) {
+                alert('请填写所有必填字段');
+                return;
+            }
+            
+            // 模拟表单提交
+            alert('留言提交成功！我们将尽快与您联系。');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
