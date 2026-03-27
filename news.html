@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻中心 - 千羽网络</title>
+    <link rel="icon" href="/www/wwwroot/www.lnhopefull.com/favicon.ico">
+    <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .news-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .news-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .news-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .nav-tabs {
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        .nav-tabs .nav-link {
+            border: none;
+            color: #6c757d;
+            font-weight: 600;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        .nav-tabs .nav-link:hover {
+            color: #667eea;
+            border: none;
+        }
+        .nav-tabs .nav-link.active {
+            color: #667eea;
+            border: none;
+            border-bottom: 3px solid #667eea;
+            background: transparent;
+        }
+        .news-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-left: 4px solid #667eea;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .news-card .date {
+            color: #667eea;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .news-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+        .news-card .summary {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        .news-card .read-more {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .news-card .read-more:hover {
+            color: #764ba2;
+        }
+        .news-card .read-more i {
+            transition: transform 0.3s;
+        }
+        .news-card .read-more:hover i {
+            transform: translateX(5px);
+        }
+        .update-note {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 40px;
+            color: #6c757d;
+        }
+        .update-note i {
+            color: #667eea;
+            margin-right: 8px;
+        }
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 12px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-primary-custom:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        .company-footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        .company-footer h5 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .company-footer p {
+            margin-bottom: 8px;
+            color: rgba(255,255,255,0.8);
+        }
+        .company-footer i {
+            color: #667eea;
+            margin-right: 10px;
+            width: 20px;
+        }
+        @media (max-width: 768px) {
+            .news-header {
+                padding: 40px 0;
+            }
+            .news-header h1 {
+                font-size: 1.8rem;
+            }
+            .nav-tabs .nav-link {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="/www/wwwroot/www.lnhopefull.com/img/logo.png" alt="千羽网络" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/one-person-company.html">一人公司</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/one-person-department.html">一人部门</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/custom-services.html">定制服务</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/news.html">新闻中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">关于我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <div class="news-header">
+        <div class="container">
+            <h1><i class="fas fa-newspaper me-2"></i>新闻中心</h1>
+            <p>了解千羽网络最新动态与行业资讯</p>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="container mb-5">
+        <!-- Tab切换 -->
+        <ul class="nav nav-tabs" id="newsTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="company-tab" data-bs-toggle="tab" data-bs-target="#company" type="button" role="tab">
+                    <i class="fas fa-building me-2"></i>公司新闻
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="industry-tab" data-bs-toggle="tab" data-bs-target="#industry" type="button" role="tab">
+                    <i class="fas fa-lightbulb me-2"></i>行业资讯
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab内容 -->
+        <div class="tab-content" id="newsTabContent">
+            <!-- 公司新闻 -->
+            <div class="tab-pane fade show active" id="company" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card">
+                            <div class="date"><i class="far fa-calendar-alt me-1"></i>2026-03-25</div>
+                            <h3>千羽网络成功签约XX客户，助力其数字化转型</h3>
+                            <p class="summary">近日，千羽网络与某知名企业达成战略合作，将为其提供全方位的企业数字化转型解决方案，涵盖网站建设、OA系统开发及智能体部署等服务。</p>
+                            <a href="#" class="read-more">查看详情 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card">
+                            <div class="date"><i class="far fa-calendar-alt me-1"></i>2026-03-20</div>
+                            <h3>千羽网络推出"一人部门"解决方案</h3>
+                            <p class="summary">专为中小型企业打造的一人多岗解决方案正式上线，帮助企业以更低成本实现高效运营，一个人也可以撑起一个部门。</p>
+                            <a href="#" class="read-more">查看详情 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card">
+                            <div class="date"><i class="far fa-calendar-alt me-1"></i>2026-03-15</div>
+                            <h3>千羽网络荣获"年度最佳互联网服务提供商"称号</h3>
+                            <p class="summary">凭借优质的服务和良好的客户口碑，千羽网络在2026年度盘锦市互联网行业评选中脱颖而出，荣获年度最佳互联网服务提供商称号。</p>
+                            <a href="#" class="read-more">查看详情 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card">
+                            <div class="date"><i class="far fa-calendar-alt me-1"></i>2026-03-10</div>
+                            <h3>千羽网络与多家本地企业建立长期合作关系</h3>
+                            <p class="summary">立足盘锦，服务本地，千羽网络已与盘锦地区十余家知名企业建立长期稳定的合作关系，共同推进本地企业数字化进程。</p>
+                            <a href="#" class="read-more">查看详情 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card">
+                            <div class="date"><i class="far fa-calendar-alt me-1"></i>2026-03-05</div>
+                            <h3>千羽网络官网全新改版上线</h3>
+                            <p class="summary">为更好地展示企业形象和服务能力，千羽网络官网经过全面升级改版，以全新的面貌和更优质的用户体验与大家见面。</p>
+                            <a href="#" class="read-more">查看详情 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card">
+                            <div class="date"><i class="far fa-calendar-alt me-1"></i>2026-02-28</div>
+                            <h3>千羽网络2026年年会成功举办</h3>
+                            <p class="summary">以"创新·突破·共赢"为主题的千羽网络2026年度盛典在盘锦成功举办，回顾过去一年的成长与收获，展望新年的发展蓝图。</p>
+                            <a href="#" class="read-more">查看详情 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 行业资讯 -->
+            <div class="tab-pane fade" id="industry" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card" style="border-left-color: #764ba2;">
+                            <div class="date" style="color: #764ba2;"><i class="far fa-calendar-alt me-1"></i>2026-03-26</div>
+                            <h3>AI Agent如何帮助中小企业降本增效</h3>
+                            <p class="summary">人工智能代理（AI Agent）正在成为中小企业提升效率、降低成本的重要工具。本文深入分析AI Agent在各行业的应用场景与实施策略。</p>
+                            <a href="#" class="read-more" style="color: #764ba2;">查看详情 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card" style="border-left-color: #764ba2;">
+                            <div class="date" style="color: #764ba2;"><i class="far fa-calendar-alt me-1"></i>2026-03-24</div>
+                            <h3>一人公司崛起：2026创业新趋势</h3>
+                            <p class="summary">随着AI工具的普及和远程协作的成熟，一人公司正在成为创业新趋势。越来越多的创业者选择以轻量化模式开启事业。</p>
+                            <a href="#" class="read-more" style="color: #764ba2;">查看详情 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card" style="border-left-color: #764ba2;">
+                            <div class="date" style="color: #764ba2;"><i class="far fa-calendar-alt me-1"></i>2026-03-22</div>
+                            <h3>2026年企业网站建设的五大趋势</h3>
+                            <p class="summary">从AI集成到沉浸式体验，本文盘点2026年企业官网建设的最新趋势，帮助企业把握数字化门面建设的关键要点。</p>
+                            <a href="#" class="read-more" style="color: #764ba2;">查看详情 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card" style="border-left-color: #764ba2;">
+                            <div class="date" style="color: #764ba2;"><i class="far fa-calendar-alt me-1"></i>2026-03-18</div>
+                            <h3>智能体时代：AI正在重塑企业服务模式</h3>
+                            <p class="summary">从客服机器人到智能决策助理，AI智能体正在深刻改变企业服务模式。本文探讨企业如何拥抱这一变革浪潮。</p>
+                            <a href="#" class="read-more" style="color: #764ba2;">查看详情 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card" style="border-left-color: #764ba2;">
+                            <div class="date" style="color: #764ba2;"><i class="far fa-calendar-alt me-1"></i>2026-03-15</div>
+                            <h3>中小企业数字化转型：从观望到行动</h3>
+                            <p class="summary">数字化转型不再是大型企业的专利，越来越多的中小企业开始意识到数字化升级的紧迫性，并积极探索适合自身的转型路径。</p>
+                            <a href="#" class="read-more" style="color: #764ba2;">查看详情 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card" style="border-left-color: #764ba2;">
+                            <div class="date" style="color: #764ba2;"><i class="far fa-calendar-alt me-1"></i>2026-03-10</div>
+                            <h3>小程序生态持续繁荣：2026发展展望</h3>
+                            <p class="summary">微信小程序生态持续繁荣，已成为企业连接用户的重要入口。本文分析小程序在2026年的发展方向与商业机会。</p>
+                            <a href="#" class="read-more" style="color: #764ba2;">查看详情 <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部说明 -->
+        <div class="update-note">
+            <p><i class="fas fa-sync-alt"></i>我们将持续更新新闻动态，为您带来最新的公司资讯与行业洞察</p>
+            <p class="mt-3 mb-0">更新频率：每周至少2-3篇高质量内容</p>
+        </div>
+
+        <!-- 查看更多按钮 -->
+        <div class="text-center mt-4 mb-5">
+            <a href="#" class="btn btn-primary-custom"><i class="fas fa-list me-2"></i>查看更多新闻</a>
+        </div>
+    </div>
+
+    <!-- 公司底部信息 -->
+    <footer class="company-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5><i class="fas fa-feather me-2"></i>千羽网络</h5>
+                    <p>专注企业数字化转型服务</p>
+                    <p>让每个企业都能享受AI带来的效率提升</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>联系方式</h5>
+                    <p><i class="fas fa-phone"></i>电话：18624274046</p>
+                    <p><i class="fas fa-map-marker-alt"></i>地址：辽宁省盘锦市兴隆台区大商城市广场E座25楼</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>关注我们</h5>
+                    <p><i class="fab fa-weixin"></i>微信公众号：千羽网络</p>
+                    <p><i class="fas fa-globe"></i>官网：www.lnhopefull.com</p>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1); margin: 30px 0 20px;">
+            <p class="text-center mb-0" style="font-size: 0.9rem; opacity: 0.7;">&copy; 2026 千羽网络 版权所有</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
