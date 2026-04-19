@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>千羽网络智能体平台升级赋能辽宁企业数字化转型</title>
+    <meta name="description" content="千羽网络宣布智能体运维平台重大升级，推出面向辽宁中小企业的AI Agent一站式解决方案，覆盖网站建设、小程序开发、软件定制及智能运维全链路，助力企业低成本、高效率实现数字化转型。">
+    <meta name="keywords" content="千羽网络,AI智能体,数字化转型,辽宁企业,一人公司,智能体运维,网站建设,小程序开发">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FFFFFF;
+            --bg-light: #F8F9FA;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B6B6B;
+            --accent-color: #0066CC;
+            --accent-light: #E8F4FD;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            line-height: 1.8;
+        }
+        .navbar {
+            background-color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+        .nav-link {
+            color: var(--text-primary);
+            margin: 0 0.5rem;
+            font-weight: 500;
+        }
+        .nav-link:hover { color: var(--accent-color); }
+        .phone-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+        }
+        .breadcrumb {
+            background-color: var(--bg-light);
+            padding: 6rem 0 1rem;
+            margin-bottom: 0;
+        }
+        .breadcrumb-item a { color: var(--text-secondary); }
+        .breadcrumb-item.active { color: var(--accent-color); }
+        .article-header {
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        .article-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        .article-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .article-meta span { margin-right: 1.5rem; }
+        .article-meta i { margin-right: 0.5rem; color: var(--accent-color); }
+        .article-content {
+            padding: 3rem 0;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            text-indent: 2em;
+        }
+        .article-content h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .article-content h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        .article-tags {
+            padding: 1.5rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: var(--bg-light);
+            color: var(--text-secondary);
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .tag:hover { background-color: var(--accent-light); color: var(--accent-color); }
+        .article-nav {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+        }
+        .article-nav a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .article-nav a:hover { color: var(--accent-color); }
+        .article-nav .prev::before { content: '← '; }
+        .article-nav .next::after { content: ' →'; }
+        .related-articles {
+            padding: 3rem 0;
+            background-color: var(--bg-light);
+        }
+        .related-title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent-color);
+        }
+        .related-item {
+            padding: 1rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+        .related-item:hover { box-shadow: var(--shadow); }
+        .related-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .related-item h4 a { color: var(--text-primary); }
+        .related-item h4 a:hover { color: var(--accent-color); }
+        .related-item date { color: var(--text-secondary); font-size: 0.85rem; }
+        .footer {
+            background-color: #1A1A1A;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        .footer h4 { color: white; margin-bottom: 1.5rem; }
+        .footer p, .footer a { color: rgba(255, 255, 255, 0.7); }
+        .footer a:hover { color: white; }
+        .footer-logo { font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 1rem; display: inline-block; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-contact { display: flex; align-items: center; margin-bottom: 1rem; }
+        .footer-contact i { margin-right: 1rem; color: var(--accent-color); }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; margin-top: 2rem; text-align: center; color: rgba(255, 255, 255, 0.5); }
+        .cta-section {
+            background-color: var(--accent-color);
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+        .cta-section h2 { color: white; margin-bottom: 1rem; }
+        .cta-section p { color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem; }
+        .cta-section .btn {
+            background-color: white;
+            color: var(--accent-color);
+            padding: 0.75rem 2rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+        }
+        .cta-section .btn:hover { background-color: var(--bg-light); }
+        .highlight-box {
+            background-color: var(--accent-light);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        .highlight-box p { margin-bottom: 0; color: var(--text-primary); text-indent: 0; }
+        @media (max-width: 768px) {
+            .article-title { font-size: 1.5rem; }
+            .article-nav { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../img/logo.png" alt="千羽网络" style="height: 32px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../opc/index.html">一人公司</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../opd/index.html">一人部门</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../custom/index.html">定制服务</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">新闻中心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about/index.html">关于我们</a></li>
+                </ul>
+                <a href="tel:18624274046" class="phone-btn"><i class="fas fa-phone-alt"></i> 18624274046</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">首页</a></li>
+                    <li class="breadcrumb-item"><a href="index.html">新闻中心</a></li>
+                    <li class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <section class="article-header">
+        <div class="container">
+            <h1 class="article-title">千羽网络智能体平台升级赋能辽宁企业数字化转型</h1>
+            <div class="article-meta">
+                <span><i class="fas fa-calendar-alt"></i>2026-04-20</span>
+                <span><i class="fas fa-eye"></i>126</span>
+                <span><i class="fas fa-folder"></i><a href="index.html">公司动态</a></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <p style="text-align: center; margin-bottom: 2rem;"><img src="https://img.0427qy.com/city/sy/img/og.png" alt="千羽网络" style="max-width: 100%; height: auto; border-radius: 8px;"></p>
+
+                    <p>2026年4月20日，千羽网络宣布旗下AI智能体运维平台完成重大版本升级，正式推出面向辽宁中小企业的"一人公司·一人部门"一站式AI解决方案。此次升级涵盖智能体编排、生产环境监控、合规审计等核心模块，帮助企业在无需组建专业技术团队的情况下，即可享受AI数字化转型红利。</p>
+
+                    <h2>传统企业数字化困局：投入大、见效慢、门槛高</h2>
+
+                    <p>过去三年，辽宁地区大量中小企业在数字化转型过程中遇到了共同难题：花了几十万元采购ERP系统，却因员工不会用、部门协调难，变成"电子摆设"；找外包团队开发的小程序，上线后频繁故障却找不到人维护；眼看同行陆续接入AI大模型，自己却因缺乏技术人才而无从下手。</p>
+
+                    <p>这些问题背后，是中小企业数字化能力的结构性缺失。大型企业可以招聘CTO、组建IT部门，而对于年营收500万以下的中小企业而言，配置专职技术团队的人力成本往往超过了系统本身的价值。</p>
+
+                    <div class="highlight-box">
+                        <p><strong>核心矛盾：</strong>企业对数字化工具的需求，与自身技术承接能力之间存在巨大鸿沟。这个鸿沟，正是千羽网络"一人公司·一人部门"解决方案的核心切入点。</p>
+                    </div>
+
+                    <h2>千羽网络智能体平台：把AI能力装进"即插即用"的盒子</h2>
+
+                    <p>千羽网络智能体平台本次升级，聚焦三个核心能力的提升：</p>
+
+                    <h3>一、智能体编排：从"写代码"到"搭积木"</h3>
+
+                    <p>新一代编排引擎允许企业通过可视化配置，完成复杂业务流程的AI自动化。用户无需编写代码，只需在图形界面上拖拽预设的技能模块（网站内容更新、询盘智能回复、数据报表生成等），即可快速搭建适配自身业务的AI工作流。实测将一条标准客服自动化流程的部署时间从3周压缩至2小时。</p>
+
+                    <h3>二、生产级监控：7×24小时保障业务连续性</h3>
+
+                    <p>升级后的监控体系覆盖智能体运行状态、API调用量级、响应时延、异常告警等全维度指标，并支持与钉钉、企业微信联动推送告警通知。这意味着，即使企业没有任何运维人员，平台也会主动发现问题并第一时间通知千羽网络运维团队介入处理。</p>
+
+                    <h3>三、合规审计：满足行业监管要求</h3>
+
+                    <p>针对金融、医疗、教育等强监管行业，新增操作日志留存、敏感数据脱敏、权限分级管控等功能，确保AI系统满足等保合规要求。某盘锦本地医疗机构引入千羽网络智能体平台后，仅用两周即完成院内数据报送机器人的部署，并通过等保二级认证。</p>
+
+                    <h2>覆盖辽宁14城：本地化服务网络成型</h2>
+
+                    <p>截至目前，千羽网络已在辽宁省内14个城市建立了线下服务网络，覆盖沈阳、大连、鞍山、抚顺、本溪、丹东、锦州、营口、阜新、辽阳、盘锦、铁岭、朝阳、葫芦岛。每一座城市均配备专属客户成功经理，确保企业从咨询、签约、实施到运维的全生命周期都能找到真人响应。</p>
+
+                    <p>千羽网络创始人表示："我们希望做到的，不是卖一套软件，而是帮企业真正用起来、用出价值。很多IT供应商卖完产品就消失，客户找售后比找客户还难。千羽网络的逻辑不同——我们按年收费，续费的前提是客户真正受益。这是我们对自己的倒逼，也是对客户的承诺。"</p>
+
+                    <h2>限时优惠：4月底前签约享首年8折</h2>
+
+                    <p>即日起至2026年4月30日，千羽网络面向辽宁中小企业推出"AI赋能计划"专项优惠：首次签约智能体运维服务，首年费用享受8折优惠，同时赠送一次免费业务诊断及AI落地方案规划。</p>
+
+                    <p>数字化转型不是大企业的专利。千羽网络相信，每一个认真做生意的中小企业，都值得拥有一个7×24小时不知疲倦的"数字员工"。</p>
+
+                    <p style="text-align: center; margin-top: 3rem; color: var(--accent-color); font-weight: 600;">
+                        <i class="fas fa-phone-alt"></i> 咨询热线：18624274046（微信同号）<br>
+                        <i class="fas fa-map-marker-alt"></i> 辽宁省盘锦市兴隆台区大商城市广场E座25楼
+                    </p>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-tags">
+        <div class="container">
+            <strong style="margin-right: 1rem;">标签：</strong>
+            <a href="index.html" class="tag">AI智能体</a>
+            <a href="index.html" class="tag">数字化转型</a>
+            <a href="index.html" class="tag">千羽网络</a>
+            <a href="index.html" class="tag">一人公司</a>
+            <a href="index.html" class="tag">辽宁企业</a>
+            <a href="index.html" class="tag">智能体运维</a>
+            <a href="index.html" class="tag">网站建设</a>
+            <a href="index.html" class="tag">小程序开发</a>
+        </div>
+    </section>
+
+    <section class="article-nav">
+        <div class="container">
+            <div>
+                <a href="2026-04-19-千羽网络AI智能体驱动SEO推广升级.html" class="prev">千羽网络AI智能体驱动SEO推广升级</a>
+            </div>
+            <div></div>
+        </div>
+    </section>
+
+    <section class="related-articles">
+        <div class="container">
+            <h3 class="related-title">相关新闻</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="related-item">
+                        <h4><a href="2026-04-19-千羽网络AI智能体驱动SEO推广升级.html">千羽网络AI智能体驱动SEO推广升级</a></h4>
+                        <date>2026-04-19</date>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="related-item">
+                        <h4><a href="#">千羽网络与盘锦多家企业达成信息化合作</a></h4>
+                        <date>2026-03-28</date>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="related-item">
+                        <h4><a href="#">一人部门解决方案：让大企业的数字化能力普惠化</a></h4>
+                        <date>2026-03-15</date>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>了解更多一人公司/一人部门解决方案</h2>
+            <p>千羽网络为您提供专业的AI Agent解决方案，助力企业降本增效</p>
+            <a href="../opc/index.html" class="btn">了解方案</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="../index.html" class="footer-logo">
+                        <img src="../img/logo.png" alt="千羽网络" style="height: 32px;">
+                    </a>
+                    <p>千羽网络是专业的一人公司/一人部门AI解决方案提供商，致力于帮助企业降低成本，提高效率，实现业务增长。</p>
+                </div>
+                <div class="col-md-3">
+                    <h4>产品服务</h4>
+                    <ul class="footer-links">
+                        <li><a href="../opc/index.html">一人公司</a></li>
+                        <li><a href="../opd/index.html">一人部门</a></li>
+                        <li><a href="../custom/index.html">定制服务</a></li>
+                        <li><a href="index.html">新闻中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../about/index.html">关于我们</a></li>
+                        <li><a href="../about/contact.html">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>联系我们</h4>
+                    <div class="footer-contact"><i class="fas fa-phone-alt"></i><span>18624274046</span></div>
+                    <div class="footer-contact"><i class="fas fa-map-marker-alt"></i><span>辽宁省盘锦市兴隆台区大商城市广场E座25楼</span></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 千羽网络 版权所有 | 辽ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
